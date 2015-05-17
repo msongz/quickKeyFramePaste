@@ -61,19 +61,20 @@ for (p = 0; p < sL.length; p++) {
 
 			zkeys = zsp.selectedKeys
 
-			for (c = 0; c < zkeys.length; c++) { //keys loop
+			try {
 
-				zkt = zsp.keyTime(zkeys[c]) //keys time
-                
-				try {
-                    
+				for (c = 0; c < zkeys.length; c++) { //keys loop
+
+					zkt = zsp.keyTime(zkeys[c]) //keys time
+
 					zsp.setValueAtTime(zkt + ot, zsp.keyValue(zkeys[c])) //paste key
-                    
-				} catch (err) {
-                    
-                    alert ("已忽略图表类关键帧，请手动复制", "注意")
-                    
-                    }
+
+				}
+				
+			} catch (err) {
+
+				alert("已忽略图表类关键帧，请手动复制", "注意")
+
 			}
 		}
 	}
